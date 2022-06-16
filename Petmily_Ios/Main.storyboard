@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Petmily_Ios" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +121,9 @@ of liked places</string>
                                                     <fontDescription key="subtitleFontDescription" type="system" pointSize="14"/>
                                                     <color key="baseBackgroundColor" red="0.92490780350000001" green="0.74762368199999996" blue="0.83138018849999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="showPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jrt-To-Z7I"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Place" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjA-2u-qNS">
                                                 <rect key="frame" x="132" y="10" width="50" height="50"/>
@@ -162,6 +165,9 @@ of Pet Emotions</string>
                                                     <fontDescription key="subtitleFontDescription" type="system" pointSize="14"/>
                                                     <color key="baseBackgroundColor" red="0.52540916199999999" green="0.64127385619999999" blue="0.90983498100000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="showAnalysis:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NpM-ze-iyf"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Analysis" translatesAutoresizingMaskIntoConstraints="NO" id="yPq-eI-mkh">
                                                 <rect key="frame" x="132" y="10" width="50" height="50"/>
@@ -297,16 +303,68 @@ of Pet Emotions</string>
                         <outlet property="WeatherDetailView" destination="1qH-jZ-fu9" id="Jhk-Dq-yl0"/>
                         <outlet property="WeatherView" destination="bjR-z2-diO" id="qGa-yq-Qdb"/>
                         <outlet property="userImageView" destination="8kL-Rd-5Rg" id="Hka-ma-yjn"/>
+                        <segue destination="nEN-EZ-znX" kind="show" identifier="showPlace" id="Zpb-aR-pv0"/>
+                        <segue destination="Ywo-N7-SZN" kind="show" identifier="showAnalysis" id="zFe-tl-Q3U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.1304347826087" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1838" y="84"/>
+        </scene>
+        <!--Place View Controller-->
+        <scene sceneID="csX-g3-EJS">
+            <objects>
+                <viewController id="nEN-EZ-znX" customClass="PlaceViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jfg-X3-cQh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-ui-cKc">
+                                <rect key="frame" x="172" y="451" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zxa-na-ZBQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="noA-vW-ojv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9V-wA-kqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="794"/>
+        </scene>
+        <!--Analysis View Controller-->
+        <scene sceneID="PWe-Pd-ISO">
+            <objects>
+                <viewController id="Ywo-N7-SZN" customClass="AnalysisViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bIX-O0-2t6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-vk-nsV">
+                                <rect key="frame" x="179" y="474" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qn9-X9-uzk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r5x-kt-rcu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVb-03-RSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="794"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="dqd-vr-DVi">
             <objects>
-                <viewController id="Gmu-sf-vIF" customClass="StoryViewController" customModule="Petmily_Ios" sceneMemberID="viewController">
+                <viewController id="Gmu-sf-vIF" customClass="StoryViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NEp-dO-6qi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,7 +414,7 @@ of Pet Emotions</string>
         <!--지도-->
         <scene sceneID="gzy-lQ-KCl">
             <objects>
-                <viewController id="g9B-Y4-ief" customClass="MapViewController" customModule="Petmily_Ios" sceneMemberID="viewController">
+                <viewController id="g9B-Y4-ief" customClass="MapViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m9m-bz-yCd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

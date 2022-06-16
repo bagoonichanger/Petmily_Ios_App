@@ -17,6 +17,8 @@
 		E6C961A5285AEB6A008D72F1 /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961A4285AEB6A008D72F1 /* WalkViewController.swift */; };
 		E6C961AA285B0775008D72F1 /* petmily.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E6C961A9285B0775008D72F1 /* petmily.jpeg */; };
 		E6C961B0285B13B6008D72F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C961AD285B10C0008D72F1 /* Main.storyboard */; };
+		E6C961B2285B2F85008D72F1 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */; };
+		E6C961B4285B2F93008D72F1 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E6C961A4285AEB6A008D72F1 /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		E6C961A9285B0775008D72F1 /* petmily.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = petmily.jpeg; path = ../../../petmily.jpeg; sourceTree = "<group>"; };
 		E6C961AD285B10C0008D72F1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				E6C961A0285AEB52008D72F1 /* StoryViewController.swift */,
 				E6C961A2285AEB58008D72F1 /* MapViewController.swift */,
 				E6C961A4285AEB6A008D72F1 /* WalkViewController.swift */,
+				E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */,
+				E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -169,7 +175,9 @@
 			files = (
 				E6C961A1285AEB52008D72F1 /* StoryViewController.swift in Sources */,
 				E6C961A3285AEB58008D72F1 /* MapViewController.swift in Sources */,
+				E6C961B4285B2F93008D72F1 /* AnalysisViewController.swift in Sources */,
 				E66313E8285ADEBD00C610CE /* AppDelegate.swift in Sources */,
+				E6C961B2285B2F85008D72F1 /* PlaceViewController.swift in Sources */,
 				E66313EA285ADEBD00C610CE /* SceneDelegate.swift in Sources */,
 				E6C9619E285AEB2B008D72F1 /* HomeViewController.swift in Sources */,
 				E6C961A5285AEB6A008D72F1 /* WalkViewController.swift in Sources */,

@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var WeatherView: UIView!
     @IBOutlet weak var WeatherDetailView: UIView!
     
-    
     @IBOutlet weak var userImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -50,3 +49,12 @@ extension HomeViewController{
     }
 }
 
+extension HomeViewController{
+    @IBAction func showPlace(_ sender: Any) {
+        performSegue(withIdentifier: "showPlace", sender: self)
+    }
+    
+    @IBAction func showAnalysis(_ sender: Any) {
+        performSegue(withIdentifier: "showAnalysis", sender: self)
+    }
+}
