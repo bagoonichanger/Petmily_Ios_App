@@ -7,5 +7,5 @@ target 'Petmily_Ios' do
 
   # Pods for Petmily_Ios
   pod 'NMapsMap'
-
+  pod 'Alamofire', '~> 5.2'
 end

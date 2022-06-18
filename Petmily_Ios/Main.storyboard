@@ -671,6 +671,7 @@ of Pet Emotions</string>
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="RKY-tB-zvO"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eZ2-51-GeR" secondAttribute="trailing" id="6hU-dS-Rc9"/>
                             <constraint firstAttribute="bottom" secondItem="eZ2-51-GeR" secondAttribute="bottom" id="JLh-5c-iO5"/>
