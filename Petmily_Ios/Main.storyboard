@@ -3,8 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -316,7 +318,7 @@ of Pet Emotions</string>
             <objects>
                 <viewController id="nEN-EZ-znX" customClass="PlaceViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfg-X3-cQh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-ui-cKc">
@@ -334,7 +336,7 @@ of Pet Emotions</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9V-wA-kqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="794"/>
+            <point key="canvasLocation" x="2858" y="84"/>
         </scene>
         <!--Analysis View Controller-->
         <scene sceneID="PWe-Pd-ISO">
@@ -359,7 +361,7 @@ of Pet Emotions</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVb-03-RSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="794"/>
+            <point key="canvasLocation" x="3913" y="84"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="dqd-vr-DVi">
@@ -384,7 +386,7 @@ of Pet Emotions</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2JU-73-MoW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2771" y="84"/>
+            <point key="canvasLocation" x="1838" y="794"/>
         </scene>
         <!--Walk View Controller-->
         <scene sceneID="uWr-Yo-dEZ">
@@ -409,32 +411,117 @@ of Pet Emotions</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Au-em-QBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="84"/>
+            <point key="canvasLocation" x="1838" y="1521"/>
         </scene>
         <!--지도-->
-        <scene sceneID="gzy-lQ-KCl">
+        <scene sceneID="R13-8J-jKW">
             <objects>
-                <viewController id="g9B-Y4-ief" customClass="MapViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m9m-bz-yCd">
+                <viewController id="IoW-rn-EIe" customClass="MapViewController" customModule="Petmily_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HD-du-U2M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9q-sv-lMv">
-                                <rect key="frame" x="186" y="438" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9n-5J-fq0">
+                                <rect key="frame" x="0.0" y="633" width="414" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="3Lv-VO-xWn"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="l71-Pr-vHK" kind="embed" id="Gz4-J6-pJz"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYt-Hj-kF2" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="589"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv0-EW-YoX">
+                                <rect key="frame" x="10" y="54" width="394" height="54"/>
+                                <subviews>
+                                    <searchBar opaque="NO" contentMode="redraw" misplaced="YES" searchBarStyle="minimal" placeholder="장소를 입력하세요." translatesAutoresizingMaskIntoConstraints="NO" id="vaz-JE-2qY">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vaz-JE-2qY" secondAttribute="height" multiplier="5:1" id="7gs-Rt-Z1S"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw5-NH-ZEg">
+                                        <rect key="frame" x="340" y="0.0" width="54" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Mw5-NH-ZEg" secondAttribute="height" id="Hjr-Hb-gnP"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.92490780350000001" green="0.74762368199999996" blue="0.83138018849999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="heart.fill" catalog="system">
+                                            <color key="baseBackgroundColor" red="0.92490780350000001" green="0.74762368199999996" blue="0.83138018849999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showPlace:" destination="IoW-rn-EIe" eventType="touchDown" id="UBf-tB-ERq"/>
+                                            <action selector="showPlace:" destination="IoW-rn-EIe" eventType="touchUpInside" id="rsd-WB-AzU"/>
+                                            <segue destination="nEN-EZ-znX" kind="show" identifier="showPlace" id="jk1-Fo-rTg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsL-y2-6Lu">
+                                        <rect key="frame" x="280.5" y="0.0" width="54.5" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LsL-y2-6Lu" secondAttribute="height" id="PCw-Ez-pTr"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.52540916199999999" green="0.64127385619999999" blue="0.90983498100000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled">
+                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                            <color key="baseBackgroundColor" red="0.52540916199999999" green="0.64127385619999999" blue="0.90983498100000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="searchPlace:" destination="IoW-rn-EIe" eventType="touchDown" id="Up2-6A-pi5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LsL-y2-6Lu" firstAttribute="top" secondItem="Qv0-EW-YoX" secondAttribute="top" id="1Wf-2g-2ie"/>
+                                    <constraint firstItem="vaz-JE-2qY" firstAttribute="top" secondItem="Qv0-EW-YoX" secondAttribute="top" id="7Y0-RD-m95"/>
+                                    <constraint firstItem="Mw5-NH-ZEg" firstAttribute="leading" secondItem="LsL-y2-6Lu" secondAttribute="trailing" constant="5" id="8fS-YR-2gP"/>
+                                    <constraint firstItem="Mw5-NH-ZEg" firstAttribute="top" secondItem="Qv0-EW-YoX" secondAttribute="top" id="A9o-V3-XQg"/>
+                                    <constraint firstAttribute="bottom" secondItem="LsL-y2-6Lu" secondAttribute="bottom" id="C8S-a6-KYn"/>
+                                    <constraint firstItem="vaz-JE-2qY" firstAttribute="leading" secondItem="Qv0-EW-YoX" secondAttribute="leading" id="QfV-51-tmn"/>
+                                    <constraint firstAttribute="bottom" secondItem="vaz-JE-2qY" secondAttribute="bottom" id="h5K-Ym-4uL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mw5-NH-ZEg" secondAttribute="bottom" id="t0F-Zx-n2P"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mw5-NH-ZEg" secondAttribute="trailing" id="ydc-aD-o01"/>
+                                    <constraint firstItem="LsL-y2-6Lu" firstAttribute="leading" secondItem="vaz-JE-2qY" secondAttribute="trailing" constant="10" id="zMy-Kg-dez"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="haD-3x-vZF"/>
+                        <viewLayoutGuide key="safeArea" id="rrG-zO-7T3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rrG-zO-7T3" firstAttribute="trailing" secondItem="Qv0-EW-YoX" secondAttribute="trailing" constant="10" id="7tS-pa-ehi"/>
+                            <constraint firstItem="Qv0-EW-YoX" firstAttribute="top" secondItem="rrG-zO-7T3" secondAttribute="top" constant="10" id="8OD-ao-gIA"/>
+                            <constraint firstItem="g9n-5J-fq0" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" id="BZO-5d-QKu"/>
+                            <constraint firstItem="rrG-zO-7T3" firstAttribute="bottom" secondItem="g9n-5J-fq0" secondAttribute="bottom" id="CwW-mr-Zye"/>
+                            <constraint firstItem="g9n-5J-fq0" firstAttribute="top" secondItem="SYt-Hj-kF2" secondAttribute="bottom" id="QPh-1g-I5g"/>
+                            <constraint firstItem="rrG-zO-7T3" firstAttribute="trailing" secondItem="g9n-5J-fq0" secondAttribute="trailing" id="VsK-B9-obQ"/>
+                            <constraint firstItem="SYt-Hj-kF2" firstAttribute="trailing" secondItem="rrG-zO-7T3" secondAttribute="trailing" id="asi-3G-s8P"/>
+                            <constraint firstItem="Qv0-EW-YoX" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" constant="10" id="i4Y-Nc-WoT"/>
+                            <constraint firstItem="SYt-Hj-kF2" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" id="qiD-sZ-SHm"/>
+                            <constraint firstItem="SYt-Hj-kF2" firstAttribute="top" secondItem="rrG-zO-7T3" secondAttribute="top" id="vw3-51-bXL"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="지도" image="Map" id="Xhy-4x-pDP"/>
+                    <tabBarItem key="tabBarItem" title="지도" image="Map" id="B47-60-ozf"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="PlaceButton" destination="Mw5-NH-ZEg" id="nfW-Hb-x6S"/>
+                        <outlet property="naverMapView" destination="SYt-Hj-kF2" id="TLM-jQ-bGK"/>
+                        <outlet property="searchBar" destination="vaz-JE-2qY" id="4Lo-Ba-04X"/>
+                        <outlet property="searchButton" destination="LsL-y2-6Lu" id="BzX-XA-w9t"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wwR-ro-TC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vht-vx-EDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4748" y="84"/>
+            <point key="canvasLocation" x="1836" y="2241"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LGJ-M0-URF">
@@ -451,12 +538,12 @@ of Pet Emotions</string>
                         <segue destination="moZ-Kl-8lo" kind="relationship" relationship="viewControllers" id="hR1-R1-1jj"/>
                         <segue destination="HjD-9D-pxH" kind="relationship" relationship="viewControllers" id="lEs-Hh-5et"/>
                         <segue destination="5rU-fa-Qqv" kind="relationship" relationship="viewControllers" id="kK4-yM-fac"/>
-                        <segue destination="g9B-Y4-ief" kind="relationship" relationship="viewControllers" id="B4U-RP-pwT"/>
+                        <segue destination="IoW-rn-EIe" kind="relationship" relationship="viewControllers" id="wm7-cr-aA8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zar-2K-69c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-670" y="1132"/>
         </scene>
         <!--홈-->
         <scene sceneID="dgd-bL-ShD">
@@ -476,7 +563,7 @@ of Pet Emotions</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6np-1K-b7D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="-759"/>
+            <point key="canvasLocation" x="772" y="84"/>
         </scene>
         <!--스토리-->
         <scene sceneID="Sf0-26-a3w">
@@ -496,7 +583,7 @@ of Pet Emotions</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBA-js-4vj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="-759"/>
+            <point key="canvasLocation" x="771" y="794"/>
         </scene>
         <!--산책-->
         <scene sceneID="ZUU-UN-Myv">
@@ -516,9 +603,90 @@ of Pet Emotions</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QF2-Rn-hWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="-759"/>
+            <point key="canvasLocation" x="770" y="1521"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QZY-qD-2t1">
+            <objects>
+                <viewController id="l71-Pr-vHK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DWM-Ep-aEd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZ2-51-GeR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                <color key="backgroundColor" red="0.74923473600000001" green="0.85206538440000001" blue="0.78038364650000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOO-Lw-zc9">
+                                    <size key="itemSize" width="382" height="105"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nSz-ZU-4Eh">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zJ3-cA-9pd">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAn-yd-lse">
+                                                    <rect key="frame" x="10" y="10" width="30" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjY-V2-P6s">
+                                                    <rect key="frame" x="10" y="36" width="30" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQR-t3-b8m">
+                                                    <rect key="frame" x="10" y="62" width="59" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-XK-bIo">
+                                                    <rect key="frame" x="10" y="88" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dQR-t3-b8m" firstAttribute="leading" secondItem="xjY-V2-P6s" secondAttribute="leading" id="18F-IQ-Gzf"/>
+                                                <constraint firstItem="LI8-XK-bIo" firstAttribute="leading" secondItem="dQR-t3-b8m" secondAttribute="leading" id="3Wq-PJ-BYX"/>
+                                                <constraint firstItem="ZAn-yd-lse" firstAttribute="top" secondItem="zJ3-cA-9pd" secondAttribute="top" constant="10" id="9at-vq-2g3"/>
+                                                <constraint firstItem="xjY-V2-P6s" firstAttribute="top" secondItem="ZAn-yd-lse" secondAttribute="bottom" constant="5" id="ApQ-Pj-yZW"/>
+                                                <constraint firstItem="xjY-V2-P6s" firstAttribute="leading" secondItem="ZAn-yd-lse" secondAttribute="leading" id="Mwn-ZG-Bq4"/>
+                                                <constraint firstItem="LI8-XK-bIo" firstAttribute="top" secondItem="dQR-t3-b8m" secondAttribute="bottom" constant="5" id="V2a-8S-tR5"/>
+                                                <constraint firstItem="dQR-t3-b8m" firstAttribute="top" secondItem="xjY-V2-P6s" secondAttribute="bottom" constant="5" id="b8z-q2-lci"/>
+                                                <constraint firstItem="ZAn-yd-lse" firstAttribute="leading" secondItem="zJ3-cA-9pd" secondAttribute="leading" constant="10" id="oFU-oL-qm8"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="382" height="105"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eZ2-51-GeR" secondAttribute="trailing" id="6hU-dS-Rc9"/>
+                            <constraint firstAttribute="bottom" secondItem="eZ2-51-GeR" secondAttribute="bottom" id="JLh-5c-iO5"/>
+                            <constraint firstItem="eZ2-51-GeR" firstAttribute="top" secondItem="DWM-Ep-aEd" secondAttribute="top" id="aim-wG-aJS"/>
+                            <constraint firstItem="eZ2-51-GeR" firstAttribute="leading" secondItem="DWM-Ep-aEd" secondAttribute="leading" id="uLx-fw-6F4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBs-n3-hea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2857" y="2184"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jk1-Fo-rTg"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Analysis" width="24" height="24"/>
         <image name="Home" width="24" height="24"/>
@@ -526,6 +694,8 @@ of Pet Emotions</string>
         <image name="Place" width="24" height="24"/>
         <image name="Story" width="24" height="24"/>
         <image name="Walk" width="24" height="24"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
