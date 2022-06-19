@@ -19,16 +19,21 @@ class MapViewController: UIViewController{
         "Authorization" : "KakaoAK 43d7c7d5953cc05cfe4479fb034163e0"
     ]
     
+    var places = [Document]()
+    
     //MARK: - 변수
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var PlaceButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var locationManager = CLLocationManager() // 위치 권한
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
         layoutSet()
         mapSet()
         authoritySet()
@@ -83,15 +88,15 @@ extension MapViewController{
                    encoding: URLEncoding.default,
                    headers: headers
         )
-        .validate()
         .responseJSON(completionHandler: { response in
             switch response.result {
             case .success(let res):
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
                     let json = try JSONDecoder().decode(Response.self, from: jsonData)
-            
-                    print(json.documents)
+                    self.places = json.documents
+                    self.collectionView.reloadData()
+                    print(json.documents) // 데이터 확인
                 } catch(let error){
                     print("catch error : \(error.localizedDescription)")
                 }
@@ -99,5 +104,28 @@ extension MapViewController{
                 print("Request failed with error: \(error)")
             }
         })
+    }
+}
+
+extension MapViewController :UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(self.places.count)
+        return self.places.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MapCollectionViewCell", for: indexPath) as? MapCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let place = self.places[indexPath.row]
+        cell.updateUI(place: place)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //셀사이즈
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
+        return CGSize(width: width , height: height)
     }
 }

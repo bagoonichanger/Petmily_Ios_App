@@ -13,6 +13,7 @@
 		E66313EA285ADEBD00C610CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66313E9285ADEBD00C610CE /* SceneDelegate.swift */; };
 		E66313F1285ADEBE00C610CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E66313F0285ADEBE00C610CE /* Assets.xcassets */; };
 		E66313F4285ADEBE00C610CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E66313F2285ADEBE00C610CE /* LaunchScreen.storyboard */; };
+		E6C18A81285E4F8D00363E5C /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C18A80285E4F8D00363E5C /* MapCollectionViewCell.swift */; };
 		E6C605E5285E1B8E003F2261 /* PlaceDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C605E4285E1B8E003F2261 /* PlaceDto.swift */; };
 		E6C9619E285AEB2B008D72F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C9619D285AEB2B008D72F1 /* HomeViewController.swift */; };
 		E6C961A1285AEB52008D72F1 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961A0285AEB52008D72F1 /* StoryViewController.swift */; };
@@ -34,6 +35,7 @@
 		E66313F0285ADEBE00C610CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E66313F3285ADEBE00C610CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E66313F5285ADEBE00C610CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6C18A80285E4F8D00363E5C /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6C605E4285E1B8E003F2261 /* PlaceDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDto.swift; sourceTree = "<group>"; };
 		E6C9619D285AEB2B008D72F1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E6C961A0285AEB52008D72F1 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				E63DE1A3285C654100FCB340 /* MapViewController.swift */,
+				E6C18A80285E4F8D00363E5C /* MapCollectionViewCell.swift */,
 				E6C605E4285E1B8E003F2261 /* PlaceDto.swift */,
 			);
 			name = "지도";
@@ -285,6 +288,7 @@
 				E6C605E5285E1B8E003F2261 /* PlaceDto.swift in Sources */,
 				E66313E8285ADEBD00C610CE /* AppDelegate.swift in Sources */,
 				E6C961B2285B2F85008D72F1 /* PlaceViewController.swift in Sources */,
+				E6C18A81285E4F8D00363E5C /* MapCollectionViewCell.swift in Sources */,
 				E66313EA285ADEBD00C610CE /* SceneDelegate.swift in Sources */,
 				E6C9619E285AEB2B008D72F1 /* HomeViewController.swift in Sources */,
 				E6C961A5285AEB6A008D72F1 /* WalkViewController.swift in Sources */,

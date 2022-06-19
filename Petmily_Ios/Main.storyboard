@@ -421,19 +421,107 @@ of Pet Emotions</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9n-5J-fq0">
-                                <rect key="frame" x="0.0" y="633" width="414" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="3Lv-VO-xWn"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="l71-Pr-vHK" kind="embed" id="Gz4-J6-pJz"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYt-Hj-kF2" customClass="NMFNaverMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="589"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="639"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fHv-KY-Ba5">
+                                <rect key="frame" x="0.0" y="683" width="414" height="130"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="8UU-Yo-2Ju"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qDD-lQ-Taa">
+                                    <size key="itemSize" width="300" height="130"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MapCollectionViewCell" id="8ML-x5-EFF" customClass="MapCollectionViewCell" customModule="Petmily_Ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nlM-zr-ymY">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP3-LY-ywL">
+                                                    <rect key="frame" x="59" y="19.5" width="26" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-0i-xYT">
+                                                    <rect key="frame" x="59" y="45.5" width="26" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qZ-ej-QTS">
+                                                    <rect key="frame" x="88.5" y="71.5" width="52" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Vu-nsW">
+                                                    <rect key="frame" x="88.5" y="97.5" width="52" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxY-qM-sGN">
+                                                    <rect key="frame" x="15" y="18" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsT-NK-ehF">
+                                                    <rect key="frame" x="15" y="44" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i56-q9-vJS">
+                                                    <rect key="frame" x="15" y="70" width="68.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xz-Yz-YJx">
+                                                    <rect key="frame" x="15" y="96" width="68.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="i56-q9-vJS" firstAttribute="top" secondItem="xsT-NK-ehF" secondAttribute="bottom" constant="5" id="4Ec-gg-sJZ"/>
+                                                <constraint firstItem="BuS-0i-xYT" firstAttribute="firstBaseline" secondItem="xsT-NK-ehF" secondAttribute="firstBaseline" id="7mT-la-KtL"/>
+                                                <constraint firstItem="5qZ-ej-QTS" firstAttribute="firstBaseline" secondItem="i56-q9-vJS" secondAttribute="firstBaseline" id="ENc-DZ-sqs"/>
+                                                <constraint firstItem="OaG-Vu-nsW" firstAttribute="firstBaseline" secondItem="7xz-Yz-YJx" secondAttribute="firstBaseline" id="H5l-NE-Mjr"/>
+                                                <constraint firstItem="XxY-qM-sGN" firstAttribute="top" secondItem="nlM-zr-ymY" secondAttribute="top" constant="18" id="JpL-8a-UKy"/>
+                                                <constraint firstItem="qP3-LY-ywL" firstAttribute="leading" secondItem="XxY-qM-sGN" secondAttribute="trailing" constant="5" id="TLZ-xt-VGF"/>
+                                                <constraint firstItem="7xz-Yz-YJx" firstAttribute="top" secondItem="i56-q9-vJS" secondAttribute="bottom" constant="5" id="UXU-QG-I9V"/>
+                                                <constraint firstItem="XxY-qM-sGN" firstAttribute="leading" secondItem="nlM-zr-ymY" secondAttribute="leading" constant="15" id="V2L-HF-aqo"/>
+                                                <constraint firstItem="xsT-NK-ehF" firstAttribute="top" secondItem="XxY-qM-sGN" secondAttribute="bottom" constant="5" id="frB-6s-eO5"/>
+                                                <constraint firstItem="qP3-LY-ywL" firstAttribute="firstBaseline" secondItem="XxY-qM-sGN" secondAttribute="firstBaseline" id="hsk-vX-OyL"/>
+                                                <constraint firstItem="5qZ-ej-QTS" firstAttribute="leading" secondItem="i56-q9-vJS" secondAttribute="trailing" constant="5" id="lfl-uB-9nE"/>
+                                                <constraint firstItem="i56-q9-vJS" firstAttribute="leading" secondItem="XxY-qM-sGN" secondAttribute="leading" id="n50-M9-RPy"/>
+                                                <constraint firstItem="OaG-Vu-nsW" firstAttribute="leading" secondItem="7xz-Yz-YJx" secondAttribute="trailing" constant="5" id="oRb-6k-e42"/>
+                                                <constraint firstItem="xsT-NK-ehF" firstAttribute="leading" secondItem="XxY-qM-sGN" secondAttribute="leading" id="pbb-1O-Lia"/>
+                                                <constraint firstItem="7xz-Yz-YJx" firstAttribute="leading" secondItem="XxY-qM-sGN" secondAttribute="leading" id="ueG-mf-Php"/>
+                                                <constraint firstItem="BuS-0i-xYT" firstAttribute="leading" secondItem="xsT-NK-ehF" secondAttribute="trailing" constant="5" id="zdD-2m-oJA"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeAddress" destination="BuS-0i-xYT" id="xGF-CM-0hE"/>
+                                            <outlet property="placeCategory" destination="OaG-Vu-nsW" id="dl0-bx-Kjl"/>
+                                            <outlet property="placeName" destination="qP3-LY-ywL" id="Fwo-q8-5ZF"/>
+                                            <outlet property="placeNumber" destination="5qZ-ej-QTS" id="T4X-ex-O1F"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv0-EW-YoX">
                                 <rect key="frame" x="10" y="54" width="394" height="54"/>
                                 <subviews>
@@ -498,15 +586,15 @@ of Pet Emotions</string>
                         <viewLayoutGuide key="safeArea" id="rrG-zO-7T3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fHv-KY-Ba5" firstAttribute="top" secondItem="SYt-Hj-kF2" secondAttribute="bottom" id="0QV-5F-deC"/>
                             <constraint firstItem="rrG-zO-7T3" firstAttribute="trailing" secondItem="Qv0-EW-YoX" secondAttribute="trailing" constant="10" id="7tS-pa-ehi"/>
                             <constraint firstItem="Qv0-EW-YoX" firstAttribute="top" secondItem="rrG-zO-7T3" secondAttribute="top" constant="10" id="8OD-ao-gIA"/>
-                            <constraint firstItem="g9n-5J-fq0" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" id="BZO-5d-QKu"/>
-                            <constraint firstItem="rrG-zO-7T3" firstAttribute="bottom" secondItem="g9n-5J-fq0" secondAttribute="bottom" id="CwW-mr-Zye"/>
-                            <constraint firstItem="g9n-5J-fq0" firstAttribute="top" secondItem="SYt-Hj-kF2" secondAttribute="bottom" id="QPh-1g-I5g"/>
-                            <constraint firstItem="rrG-zO-7T3" firstAttribute="trailing" secondItem="g9n-5J-fq0" secondAttribute="trailing" id="VsK-B9-obQ"/>
+                            <constraint firstItem="fHv-KY-Ba5" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" id="UrH-1s-tCJ"/>
                             <constraint firstItem="SYt-Hj-kF2" firstAttribute="trailing" secondItem="rrG-zO-7T3" secondAttribute="trailing" id="asi-3G-s8P"/>
+                            <constraint firstItem="fHv-KY-Ba5" firstAttribute="trailing" secondItem="rrG-zO-7T3" secondAttribute="trailing" id="eht-Bb-PTQ"/>
                             <constraint firstItem="Qv0-EW-YoX" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" constant="10" id="i4Y-Nc-WoT"/>
                             <constraint firstItem="SYt-Hj-kF2" firstAttribute="leading" secondItem="rrG-zO-7T3" secondAttribute="leading" id="qiD-sZ-SHm"/>
+                            <constraint firstItem="rrG-zO-7T3" firstAttribute="bottom" secondItem="fHv-KY-Ba5" secondAttribute="bottom" id="u53-vo-vH7"/>
                             <constraint firstItem="SYt-Hj-kF2" firstAttribute="top" secondItem="rrG-zO-7T3" secondAttribute="top" id="vw3-51-bXL"/>
                         </constraints>
                     </view>
@@ -514,6 +602,7 @@ of Pet Emotions</string>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="PlaceButton" destination="Mw5-NH-ZEg" id="nfW-Hb-x6S"/>
+                        <outlet property="collectionView" destination="fHv-KY-Ba5" id="5TF-Az-N7s"/>
                         <outlet property="naverMapView" destination="SYt-Hj-kF2" id="TLM-jQ-bGK"/>
                         <outlet property="searchBar" destination="vaz-JE-2qY" id="4Lo-Ba-04X"/>
                         <outlet property="searchButton" destination="LsL-y2-6Lu" id="BzX-XA-w9t"/>
@@ -521,7 +610,7 @@ of Pet Emotions</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vht-vx-EDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="2241"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="2240.625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LGJ-M0-URF">
@@ -604,85 +693,6 @@ of Pet Emotions</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QF2-Rn-hWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="770" y="1521"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="QZY-qD-2t1">
-            <objects>
-                <viewController id="l71-Pr-vHK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DWM-Ep-aEd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZ2-51-GeR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                <color key="backgroundColor" red="0.74923473600000001" green="0.85206538440000001" blue="0.78038364650000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOO-Lw-zc9">
-                                    <size key="itemSize" width="382" height="105"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nSz-ZU-4Eh">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="105"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zJ3-cA-9pd">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="105"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAn-yd-lse">
-                                                    <rect key="frame" x="10" y="10" width="30" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjY-V2-P6s">
-                                                    <rect key="frame" x="10" y="36" width="30" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQR-t3-b8m">
-                                                    <rect key="frame" x="10" y="62" width="59" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-XK-bIo">
-                                                    <rect key="frame" x="10" y="88" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="dQR-t3-b8m" firstAttribute="leading" secondItem="xjY-V2-P6s" secondAttribute="leading" id="18F-IQ-Gzf"/>
-                                                <constraint firstItem="LI8-XK-bIo" firstAttribute="leading" secondItem="dQR-t3-b8m" secondAttribute="leading" id="3Wq-PJ-BYX"/>
-                                                <constraint firstItem="ZAn-yd-lse" firstAttribute="top" secondItem="zJ3-cA-9pd" secondAttribute="top" constant="10" id="9at-vq-2g3"/>
-                                                <constraint firstItem="xjY-V2-P6s" firstAttribute="top" secondItem="ZAn-yd-lse" secondAttribute="bottom" constant="5" id="ApQ-Pj-yZW"/>
-                                                <constraint firstItem="xjY-V2-P6s" firstAttribute="leading" secondItem="ZAn-yd-lse" secondAttribute="leading" id="Mwn-ZG-Bq4"/>
-                                                <constraint firstItem="LI8-XK-bIo" firstAttribute="top" secondItem="dQR-t3-b8m" secondAttribute="bottom" constant="5" id="V2a-8S-tR5"/>
-                                                <constraint firstItem="dQR-t3-b8m" firstAttribute="top" secondItem="xjY-V2-P6s" secondAttribute="bottom" constant="5" id="b8z-q2-lci"/>
-                                                <constraint firstItem="ZAn-yd-lse" firstAttribute="leading" secondItem="zJ3-cA-9pd" secondAttribute="leading" constant="10" id="oFU-oL-qm8"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="382" height="105"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="RKY-tB-zvO"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eZ2-51-GeR" secondAttribute="trailing" id="6hU-dS-Rc9"/>
-                            <constraint firstAttribute="bottom" secondItem="eZ2-51-GeR" secondAttribute="bottom" id="JLh-5c-iO5"/>
-                            <constraint firstItem="eZ2-51-GeR" firstAttribute="top" secondItem="DWM-Ep-aEd" secondAttribute="top" id="aim-wG-aJS"/>
-                            <constraint firstItem="eZ2-51-GeR" firstAttribute="leading" secondItem="DWM-Ep-aEd" secondAttribute="leading" id="uLx-fw-6F4"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SBs-n3-hea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2857" y="2184"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
