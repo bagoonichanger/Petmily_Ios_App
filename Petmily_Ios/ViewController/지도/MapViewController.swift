@@ -27,6 +27,7 @@ class MapViewController: UIViewController{
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var locattionButton: NMFLocationButton!
     
     var locationManager = CLLocationManager() // 위치 권한
     
@@ -34,6 +35,7 @@ class MapViewController: UIViewController{
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        searchBar.delegate = self
         layoutSet()
         mapSet()
         authoritySet()
@@ -62,29 +64,69 @@ extension MapViewController{
         PlaceButton.clipsToBounds = true
         searchButton.layer.cornerRadius = PlaceButton.frame.height/2
         searchButton.clipsToBounds = true
+        searchBar.searchTextField.backgroundColor = .white
     }
     
     func mapSet(){
-        naverMapView.showLocationButton = true
+        naverMapView.showLocationButton = false
+        locattionButton.mapView = naverMapView.mapView
+    }
+    
+    func dismissKeyboard(){
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchbarAlert(){
+        let alert = UIAlertController(title:"검색어가 없습니다.",
+            message: "검색창에 장소를 입력해주세요",
+            preferredStyle: UIAlertController.Style.alert)
+        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirm)
+        present(alert,animated: true,completion: nil)
     }
 }
 
 //MARK: - button 이벤트
 extension MapViewController{
     @IBAction func searchPlace(_ sender: Any) {
-        getPlace()
+        let searchText = searchBar.text
+        
+        guard searchText != "" else {
+            searchbarAlert()
+            return
+        }
+        getPlace(searchText!)
+        collectionView.isHidden = false
+        dismissKeyboard()
     }
     
     @IBAction func showPlace(_ sender: Any) {
         performSegue(withIdentifier: "showPlace", sender: self)
     }
 }
+
+//MARK: - keyboard
+extension MapViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchText = searchBar.text
+        
+        guard searchText != "" else {
+            searchbarAlert()
+            return
+        }
+        getPlace(searchText!)
+        collectionView.isHidden = false
+        dismissKeyboard()
+    }
+}
+
+
 //MARK: - kakao api : GET
 extension MapViewController{
-    func getPlace(){
+    func getPlace(_ searchText: String){
         AF.request(url,
                    method: .get,
-                   parameters: ["query":searchBar.text ?? ""],
+                   parameters: ["query":searchText],
                    encoding: URLEncoding.default,
                    headers: headers
         )
@@ -119,13 +161,20 @@ extension MapViewController :UICollectionViewDataSource, UICollectionViewDelegat
         }
         let place = self.places[indexPath.row]
         cell.updateUI(place: place)
+    
+//        cell.stbackView.layer.shadowColor = UIColor.black.cgColor
+//        cell.stbackView.layer.shadowOpacity = 0.5
+//        cell.stbackView.layer.shadowRadius = 10
+//        cell.stbackView.layer.masksToBounds = false
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //셀사이즈
         let width = collectionView.bounds.width
-        let height = collectionView.bounds.height
+        let height :CGFloat = 130
         return CGSize(width: width , height: height)
     }
 }
