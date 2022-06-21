@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import NMapsMap
 import Alamofire
+import SafariServices
 
 class MapViewController: UIViewController{
     //MARK: - Kakao api
@@ -25,10 +26,10 @@ class MapViewController: UIViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var PlaceButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var naverMapView: NMFMapView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var locattionButton: NMFLocationButton!
     
+    var markers =  [NMFMarker]()
     var locationManager = CLLocationManager() // 위치 권한
     
     override func viewDidLoad() {
@@ -37,7 +38,6 @@ class MapViewController: UIViewController{
         collectionView.dataSource = self
         searchBar.delegate = self
         layoutSet()
-        mapSet()
         authoritySet()
     }
 }
@@ -67,19 +67,14 @@ extension MapViewController{
         searchBar.searchTextField.backgroundColor = .white
     }
     
-    func mapSet(){
-        naverMapView.showLocationButton = false
-        locattionButton.mapView = naverMapView.mapView
-    }
-    
     func dismissKeyboard(){
         searchBar.resignFirstResponder()
     }
     
     func searchbarAlert(){
         let alert = UIAlertController(title:"검색어가 없습니다.",
-            message: "검색창에 장소를 입력해주세요",
-            preferredStyle: UIAlertController.Style.alert)
+                                      message: "검색창에 장소를 입력해주세요",
+                                      preferredStyle: UIAlertController.Style.alert)
         let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(confirm)
         present(alert,animated: true,completion: nil)
@@ -95,6 +90,7 @@ extension MapViewController{
             searchbarAlert()
             return
         }
+        deleteMarkers()
         getPlace(searchText!)
         collectionView.isHidden = false
         dismissKeyboard()
@@ -114,6 +110,7 @@ extension MapViewController: UISearchBarDelegate{
             searchbarAlert()
             return
         }
+        deleteMarkers()
         getPlace(searchText!)
         collectionView.isHidden = false
         dismissKeyboard()
@@ -149,32 +146,91 @@ extension MapViewController{
     }
 }
 
+//MARK: - cell 구성하기
 extension MapViewController :UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { //검색 결과 갯수
         print(self.places.count)
         return self.places.count
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell { //셀 구성
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MapCollectionViewCell", for: indexPath) as? MapCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         let place = self.places[indexPath.row]
+        print(place.placeName)
+        
+        updateCamera(place)
         cell.updateUI(place: place)
-    
-//        cell.stbackView.layer.shadowColor = UIColor.black.cgColor
-//        cell.stbackView.layer.shadowOpacity = 0.5
-//        cell.stbackView.layer.shadowRadius = 10
-//        cell.stbackView.layer.masksToBounds = false
+        updateMarker(place)
+        
+        cell.likePlaceButton.tag = indexPath.row
+        cell.likePlaceButton.addTarget(self, action: #selector(likePlace(_:)), for: .touchUpInside)
+        
+        cell.sharePlaceButton.tag = indexPath.row
+        cell.sharePlaceButton.addTarget(self, action: #selector(sharePlace(_:)), for: .touchUpInside)
+        
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = true
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let place = self.places[indexPath.row]
+        let Url = NSURL(string: place.placeURL)
+        let SafariView : SFSafariViewController = SFSafariViewController(url: Url as! URL)
+        self.present(SafariView, animated: true)
+    }
+    
+    @objc func likePlace(_ sender: UIButton){
+        print(sender.tag)
+    }
+    
+    @objc func sharePlace(_ sender: UIButton){
+        print(sender.tag)
+        
+        let place = self.places[sender.tag]
+        let placeText = "이름 : \(place.placeName)\n주소 : \(place.addressName)\n전화번호 : \(place.phone)\nURL : \(place.placeURL)"
+        var objectsToShare = [String]()
+        
+        objectsToShare.append(placeText)
+        
+        let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+}
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //셀사이즈
-        let width = collectionView.bounds.width
-        let height :CGFloat = 130
-        return CGSize(width: width , height: height)
+//MARK: - NAVER API
+extension MapViewController{
+    func updateCamera(_ place: Document){
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: Double(place.y)!, lng: Double(place.x)!))
+        cameraUpdate.animation = .easeIn
+        naverMapView.moveCamera(cameraUpdate)
+        // 검색 결과 스크롤시 카메라 이동
+    }
+    
+    func updateMarker(_ place: Document){
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: Double(place.y)!, lng: Double(place.x)!)
+        marker.iconImage = NMF_MARKER_IMAGE_BLACK
+        marker.iconTintColor = UIColor(red: 245/255, green: 189/255, blue: 213/255, alpha: 1)
+        markers.append(marker)
+        marker.mapView = naverMapView
+    }
+    
+    func deleteMarkers(){
+        markers.forEach{
+            $0.mapView = nil
+        }
+    }
+    func mapOverlay(){
+        let locationOverlay = naverMapView.locationOverlay
+        locationOverlay.minZoom = 12
+        locationOverlay.isMinZoomInclusive = true
+        locationOverlay.maxZoom = 16
+        locationOverlay.isMaxZoomInclusive = false
     }
 }

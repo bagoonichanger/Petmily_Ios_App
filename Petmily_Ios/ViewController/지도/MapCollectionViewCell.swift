@@ -12,7 +12,9 @@ class MapCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var placeAddress: UILabel!
     @IBOutlet weak var placeNumber: UILabel!
     @IBOutlet weak var placeCategory: UILabel!
-    @IBOutlet weak var stbackView: UIView!
+    
+    @IBOutlet weak var likePlaceButton: UIButton!
+    @IBOutlet weak var sharePlaceButton: UIButton!
     
     
     func updateUI(place: Document){

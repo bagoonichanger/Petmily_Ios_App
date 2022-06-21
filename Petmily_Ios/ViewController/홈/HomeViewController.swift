@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+//MARK: - layout set
 extension HomeViewController{
     func logoSet(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -49,6 +50,7 @@ extension HomeViewController{
     }
 }
 
+//MARK: - button Event
 extension HomeViewController{
     @IBAction func showPlace(_ sender: Any) {
         performSegue(withIdentifier: "showPlace", sender: self)
@@ -58,3 +60,4 @@ extension HomeViewController{
         performSegue(withIdentifier: "showAnalysis", sender: self)
     }
 }
+
