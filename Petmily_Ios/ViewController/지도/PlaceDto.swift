@@ -8,7 +8,7 @@
 import Foundation
 
 //MARK: - Response
-public struct Response: Codable {
+public struct PlaceResponse: Codable {
     let meta: Meta
     let documents: [Document]
 }

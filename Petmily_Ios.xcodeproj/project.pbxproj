@@ -22,6 +22,8 @@
 		E6C961B0285B13B6008D72F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C961AD285B10C0008D72F1 /* Main.storyboard */; };
 		E6C961B2285B2F85008D72F1 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */; };
 		E6C961B4285B2F93008D72F1 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */; };
+		E6D8978D2861A0D900CCAACE /* WeatherDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D8978C2861A0D900CCAACE /* WeatherDto.swift */; };
+		E6E243E4286869F100E37297 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E243E3286869F100E37297 /* StoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		E6C961AD285B10C0008D72F1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		E6D8978C2861A0D900CCAACE /* WeatherDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDto.swift; sourceTree = "<group>"; };
+		E6E243E3286869F100E37297 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 				E6C9619D285AEB2B008D72F1 /* HomeViewController.swift */,
 				E6C961B1285B2F85008D72F1 /* PlaceViewController.swift */,
 				E6C961B3285B2F93008D72F1 /* AnalysisViewController.swift */,
+				E6D8978C2861A0D900CCAACE /* WeatherDto.swift */,
 			);
 			name = "홈";
 			path = "홈";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E6C961A0285AEB52008D72F1 /* StoryViewController.swift */,
+				E6E243E3286869F100E37297 /* StoryCollectionViewCell.swift */,
 			);
 			name = "스토리";
 			path = "스토리";
@@ -287,11 +293,13 @@
 				E6C961B4285B2F93008D72F1 /* AnalysisViewController.swift in Sources */,
 				E6C605E5285E1B8E003F2261 /* PlaceDto.swift in Sources */,
 				E66313E8285ADEBD00C610CE /* AppDelegate.swift in Sources */,
+				E6E243E4286869F100E37297 /* StoryCollectionViewCell.swift in Sources */,
 				E6C961B2285B2F85008D72F1 /* PlaceViewController.swift in Sources */,
 				E6C18A81285E4F8D00363E5C /* MapCollectionViewCell.swift in Sources */,
 				E66313EA285ADEBD00C610CE /* SceneDelegate.swift in Sources */,
 				E6C9619E285AEB2B008D72F1 /* HomeViewController.swift in Sources */,
 				E6C961A5285AEB6A008D72F1 /* WalkViewController.swift in Sources */,
+				E6D8978D2861A0D900CCAACE /* WeatherDto.swift in Sources */,
 				E63DE1A4285C654100FCB340 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

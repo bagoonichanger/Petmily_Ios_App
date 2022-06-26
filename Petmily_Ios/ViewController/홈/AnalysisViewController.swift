@@ -11,6 +11,12 @@ class AnalysisViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoSet()
+    }
+}
 
+extension AnalysisViewController{
+    func logoSet(){
+        self.navigationItem.title = "감정 분석"
     }
 }

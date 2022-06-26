@@ -132,7 +132,7 @@ extension MapViewController{
             case .success(let res):
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
-                    let json = try JSONDecoder().decode(Response.self, from: jsonData)
+                    let json = try JSONDecoder().decode(PlaceResponse.self, from: jsonData)
                     self.places = json.documents
                     self.collectionView.reloadData()
                     print(json.documents) // 데이터 확인
